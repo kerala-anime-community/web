@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kerala Anime Community Terms of Service - Guidelines and rules for our community members">
+    <meta name="keywords" content="KAC terms, community guidelines, anime community rules, Kerala anime terms">
+    <meta name="author" content="Kerala Anime Community">
+    <title>Terms of Service - Kerala Anime Community</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6366f1;
+            --primary-light: #818cf8;
+            --primary-dark: #4f46e5;
+            --secondary-color: #ec4899;
+            --accent-color: #06b6d4;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --text-white: #ffffff;
+            --bg-white: #ffffff;
+            --bg-light: #f9fafb;
+            --bg-lighter: #f3f4f6;
+            --border-light: #e5e7eb;
+            --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --gradient-subtle: linear-gradient(135deg, rgba(99, 102, 241, 0.03), rgba(236, 72, 153, 0.03));
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --border-radius-xl: 16px;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-top: 2.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            color: var(--primary-color);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+            margin-left: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-primary);
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-arrow {
+            font-size: 0.7rem;
+            margin-left: 5px;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--bg-white);
+            min-width: 200px;
+            box-shadow: var(--shadow-lg);
+            border-radius: var(--border-radius);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            list-style: none;
+            padding: 0.5rem 0;
+            z-index: 1001;
+            border: 1px solid var(--border-light);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: var(--transition);
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--bg-lighter);
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+        }
+
+        /* Hamburger Menu (Mobile) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            margin: 3px 0;
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .terms-hero {
+            position: relative;
+            padding: 140px 0 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: 
+                linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9)),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="white"/><path d="M20,20 L80,20 L80,80 L20,80 Z" fill="none" stroke="%236366f1" stroke-width="0.5" stroke-dasharray="5,5"/><circle cx="50" cy="50" r="30" fill="none" stroke="%23ec4899" stroke-width="0.3" stroke-dasharray="3,3"/></svg>');
+            background-size: cover;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Terms Content */
+        .terms-content {
+            padding: 4rem 0;
+            background: var(--bg-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .terms-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: 
+                radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, rgba(99, 102, 241, 0) 70%);
+            border-radius: 50%;
+        }
+
+        .terms-container {
+            background: var(--bg-white);
+            border-radius: var(--border-radius-xl);
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            z-index: 1;
+        }
+
+        .intro-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .intro-section p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .prohibited-section {
+            margin: 3rem 0;
+        }
+
+        .prohibited-list {
+            list-style: none;
+            counter-reset: prohibited-counter;
+        }
+
+        .prohibited-item {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: var(--bg-lighter);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary-color);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .prohibited-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .prohibited-item::before {
+            counter-increment: prohibited-counter;
+            content: counter(prohibited-counter);
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .prohibited-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .prohibited-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .last-updated {
+            background: var(--gradient-subtle);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-top: 3rem;
+            text-align: center;
+            border: 1px solid var(--border-light);
+        }
+
+        .last-updated p {
+            margin-bottom: 0;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .note-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            color: #856404;
+        }
+
+        .note-box p {
+            margin-bottom: 0;
+            color: #856404;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: var(--text-white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--text-white);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo img {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .footer-logo span {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-white);
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--text-white);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--text-white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                flex-direction: column;
+                background: var(--bg-white);
+                width: 80%;
+                max-width: 300px;
+                height: calc(100vh - 70px);
+                box-shadow: var(--shadow-xl);
+                transition: var(--transition);
+                padding: 2rem 0;
+                align-items: flex-start;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-item {
+                margin: 0;
+                width: 100%;
+            }
+            
+            .nav-link {
+                display: block;
+                padding: 1rem 2rem;
+                width: 100%;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: var(--bg-lighter);
+                width: 100%;
+                display: none;
+            }
+            
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .terms-container {
+                padding: 2rem 1.5rem;
+            }
+            
+            .prohibited-item::before {
+                left: -12px;
+                width: 25px;
+                height: 25px;
+                font-size: 0.8rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-logo {
+                justify-content: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .terms-container {
+                padding: 1.5rem;
+            }
+            
+            .prohibited-item {
+                padding: 1.2rem;
+                margin-left: 15px;
+            }
+            
+            .prohibited-item::before {
+                left: -15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTUwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTAgMTBIMTQwVjQwSDEwVjEwWiIgZmlsbD0iIzYzNjZmMSIvPgo8cGF0aCBkPSJNMTAgMTBIMTQwVjQwSDEwVjEwWiIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyXzBfMikiLz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQwX2xpbmVhcl8wXzIiIHgxPSIxMCIgeTE9IjEwIiB4Mj0iMTQwIiB5Mj0iNDAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzYzNjZmMSIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNlYzQ4OTkiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8dGV4dCB4PSIxNSIgeT0iMzIiIGZvbnQtZmFtaWx5PSJJbnRlciIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiPktBQzwvdGV4dD4KPC9zdmc+Cg==" alt="KAC Logo">
+                        <span>Kerala Anime Community</span>
+                    </a>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-menu">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Community <span class="dropdown-arrow">▼</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/about">About Us</a></li>
+                                <li><a href="join.html">Join Community</a></li>
+                                <li><a href="index.html#features">Features & Products</a></li>
+                                <li><a href="index.html#survey">Community Survey</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="index.html#support" class="nav-link">What We Support</a></li>
+                        <li class="nav-item"><a href="terms.html" class="nav-link active">Terms</a></li>
+                        <li class="nav-item"><a href="/privacy" class="nav-link">Privacy</a></li>
+                        <li class="nav-item"><a href="/report" class="nav-link">Report</a></li>
+                    </ul>
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="terms-hero">
+        <div class="container">
+            <h1 class="hero-title">Terms of Service</h1>
+            <p class="hero-subtitle">Guidelines and rules for being part of Kerala Anime Community</p>
+        </div>
+    </section>
+
+    <!-- Terms Content -->
+    <section class="terms-content">
+        <div class="container">
+            <div class="terms-container">
+                <div class="intro-section">
+                    <h2>Community Guidelines</h2>
+                    <p>KAC refers to Kerala Anime Community is a community built for Anime, Movies, Series, Drama fans to share and engage their activities. Our WhatsApp group (refers to groups on WhatsApp) are maintained by Community Admins.</p>
+                    <p>The Community must maintain actively by following these terms:</p>
+                </div>
+
+                <div class="prohibited-section">
+                    <h2>Prohibited Activities</h2>
+                    <p>The following activities are strictly prohibited in our community. Violation may result in immediate removal from the community.</p>
+                    
+                    <ul class="prohibited-list">
+                        <li class="prohibited-item">
+                            <div class="prohibited-title">Advertising</div>
+                            <div class="prohibited-description">We are not created this community for sharing your earning methods, or businesses.</div>
+                        </li>
+                        <li class="prohibited-item">
+                            <div class="prohibited-title">Refer Process of Applications or Websites</div>
+                            <div class="prohibited-description">Sharing referral links or promoting unrelated topics is not allowed.</div>
+                        </li>
+                        <li class="prohibited-item">
+                            <div class="prohibited-title">Payment Related Services</div>
+                            <div class="prohibited-description">Any discussion or promotion of payment services is prohibited.</div>
+                        </li>
+                        <li class="prohibited-item">
+                            <div class="prohibited-title">18+ Related Contents</div>
+                            <div class="prohibited-description">This includes porn, hanime, and anime 18+ flagged images, videos, audio, documents.</div>
+                        </li>
+                        <li class="prohibited-item">
+                            <div class="prohibited-title">Copyrighted Contents</div>
+                            <div class="prohibited-description">Sharing or distributing copyrighted material without permission is strictly prohibited.</div>
+                        </li>
+                        <li class="prohibited-item">
+                            <div class="prohibited-title">Spamming Unnecessary Messages</div>
+                            <div class="prohibited-description">Avoid sending repetitive, irrelevant, or excessive messages that disrupt community conversations.</div>
+                        </li>
+                        <li class="prohibited-item">
+                            <div class="prohibited-title">Entering Other People's Personal Messages</div>
+                            <div class="prohibited-description">We are looking for a community with privacy and security. Entering someone's DM without their permission is strictly prohibited and we will take strict Legal actions.</div>
+                        </li>
+                        <li class="prohibited-item">
+                            <div class="prohibited-title">Chicking (Flirting)</div>
+                            <div class="prohibited-description">While it's a most common behavior for humans, chicking is strictly prohibited. The community isn't built for finding your future partner, and using words with such intentions will be punished.</div>
+                        </li>
+                        <li class="prohibited-item">
+                            <div class="prohibited-title">Financial Begging</div>
+                            <div class="prohibited-description">We are a Community, not a financial funding group.</div>
+                        </li>
+                        <li class="prohibited-item">
+                            <div class="prohibited-title">Account Exchanges</div>
+                            <div class="prohibited-description">Exchanging accounts with other community members are prohibited and we won't be responsible for any issues arising from such exchanges.</div>
+                        </li>
+                        <li class="prohibited-item">
+                            <div class="prohibited-title">Buying or Selling</div>
+                            <div class="prohibited-description">Currently we haven't built a Buying and Selling platform for Any of our services, and anything related is prohibited.</div>
+                        </li>
+                        <li class="prohibited-item">
+                            <div class="prohibited-title">Only Related Topics</div>
+                            <div class="prohibited-description">Please keep discussions relevant to anime, movies, series, dramas, and related topics.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="note-box">
+                    <p><strong>Note:</strong> What you're allowed to do will be detailed in our privacy page. Please check it out for permitted activities and community benefits.</p>
+                </div>
+
+                <div class="last-updated">
+                    <p><strong>Last Updated:</strong> 17/10/2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTIwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNNiA2SDExNFYzNEg2VjZaIiBmaWxsPSIjNjM2NmYxIi8+CjxwYXRoIGQ9Ik02IDZIMTE0VjM0SDZWNloiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl8wXzIpIi8+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50MF9saW5lYXJfMF8yIiB4MT0iNiIgeTE9IjYiIHgyPSIxMTQiIHkyPSIzNCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjNjM2NmYxIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2VjNDg5OSIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+Cjx0ZXh0IHg9IjEyIiB5PSIyNiIgZm9udC1mYW1pbHk9IkludGVyIiBmb250LXNpemU9IjEyIiBmaWxsPSJ3aGl0ZSI+S0FDPC90ZXh0Pgo8L3N2Zz4K" alt="KAC Logo">
+                        <span>Kerala Anime Community</span>
+                    </div>
+                    <p>Connecting anime fans across Kerala through shared passion and community events.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">FB</a>
+                        <a href="#" aria-label="Instagram">IG</a>
+                        <a href="#" aria-label="Twitter">TW</a>
+                        <a href="#" aria-label="Discord">DC</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="join.html">Join Community</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/report">Report Issue</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>What We Support</h3>
+                    <ul>
+                        <li><a href="index.html#support">Anime</a></li>
+                        <li><a href="index.html#support">Movies</a></li>
+                        <li><a href="index.html#support">Series</a></li>
+                        <li><a href="index.html#support">Dramas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Email: contact@keralaac.com</p>
+                    <p>Discord: discord.gg/kac</p>
+                    <p>Kerala, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Kerala Anime Community. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const dropdowns = document.querySelectorAll('.dropdown');
+            
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            });
+            
+            // Handle dropdowns on mobile
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('.nav-link');
+                
+                link.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        dropdown.classList.toggle('active');
+                        
+                        // Close other dropdowns
+                        dropdowns.forEach(otherDropdown => {
+                            if (otherDropdown !== dropdown) {
+                                otherDropdown.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            });
+            
+            // Header scroll effect
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
