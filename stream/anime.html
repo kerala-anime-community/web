@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anime Streaming Platforms - Kerala Anime Community">
+    <meta name="keywords" content="anime streaming, watch anime, free anime, paid anime, KAC">
+    <meta name="author" content="Kerala Anime Community">
+    <title>Anime Streaming Platforms - KAC</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6366f1;
+            --primary-light: #818cf8;
+            --primary-dark: #4f46e5;
+            --secondary-color: #ec4899;
+            --accent-color: #06b6d4;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --text-white: #ffffff;
+            --bg-white: #ffffff;
+            --bg-light: #f9fafb;
+            --bg-lighter: #f3f4f6;
+            --border-light: #e5e7eb;
+            --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --gradient-subtle: linear-gradient(135deg, rgba(99, 102, 241, 0.03), rgba(236, 72, 153, 0.03));
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --border-radius-xl: 16px;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-top: 2.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            color: var(--primary-color);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+            margin-left: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-primary);
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-arrow {
+            font-size: 0.7rem;
+            margin-left: 5px;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--bg-white);
+            min-width: 200px;
+            box-shadow: var(--shadow-lg);
+            border-radius: var(--border-radius);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            list-style: none;
+            padding: 0.5rem 0;
+            z-index: 1001;
+            border: 1px solid var(--border-light);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: var(--transition);
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--bg-lighter);
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+        }
+
+        /* Hamburger Menu (Mobile) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            margin: 3px 0;
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .streaming-hero {
+            position: relative;
+            padding: 140px 0 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: 
+                linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9)),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="white"/><path d="M20,20 L80,20 L80,80 L20,80 Z" fill="none" stroke="%236366f1" stroke-width="0.5" stroke-dasharray="5,5"/><circle cx="50" cy="50" r="30" fill="none" stroke="%23ec4899" stroke-width="0.3" stroke-dasharray="3,3"/></svg>');
+            background-size: cover;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Streaming Platforms Section */
+        .streaming-section {
+            padding: 4rem 0;
+            background: var(--bg-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .streaming-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: 
+                radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, rgba(99, 102, 241, 0) 70%);
+            border-radius: 50%;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border-light);
+            border-radius: var(--border-radius);
+            color: var(--text-dark);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: var(--text-white);
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .platform-card {
+            background: var(--bg-white);
+            border-radius: var(--border-radius-xl);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+            position: relative;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .platform-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .platform-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--border-radius);
+            background: var(--gradient-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-right: 1rem;
+            border: 2px solid var(--border-light);
+        }
+
+        .platform-info {
+            flex: 1;
+        }
+
+        .platform-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .platform-url {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .platform-features {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .feature-tag {
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .feature-free {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success-color);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .feature-paid {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary-color);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .feature-ads-yes {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning-color);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .feature-ads-no {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success-color);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .platform-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .platform-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 0.8rem;
+            background: var(--bg-lighter);
+            border-radius: var(--border-radius);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-value {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+
+        .platform-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            gap: 0.5rem;
+            flex: 1;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--text-white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: var(--bg-white);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--text-white);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: var(--text-white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--text-white);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo img {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .footer-logo span {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-white);
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--text-white);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--text-white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                flex-direction: column;
+                background: var(--bg-white);
+                width: 80%;
+                max-width: 300px;
+                height: calc(100vh - 70px);
+                box-shadow: var(--shadow-xl);
+                transition: var(--transition);
+                padding: 2rem 0;
+                align-items: flex-start;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-item {
+                margin: 0;
+                width: 100%;
+            }
+            
+            .nav-link {
+                display: block;
+                padding: 1rem 2rem;
+                width: 100%;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: var(--bg-lighter);
+                width: 100%;
+                display: none;
+            }
+            
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .platforms-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .platform-card {
+                padding: 1.5rem;
+            }
+            
+            .platform-actions {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-logo {
+                justify-content: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .filter-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                width: 100%;
+                max-width: 200px;
+            }
+            
+            .platform-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .platform-logo {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="kac.png" alt="KAC Logo">
+                        <span>Kerala Anime Community</span>
+                    </a>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-menu">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Community <span class="dropdown-arrow">▼</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/about">About Us</a></li>
+                                <li><a href="join.html">Join Community</a></li>
+                                <li><a href="index.html#features">Features & Products</a></li>
+                                <li><a href="index.html#survey">Community Survey</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="streaming.html" class="nav-link active">Streaming</a></li>
+                        <li class="nav-item"><a href="terms.html" class="nav-link">Terms</a></li>
+                        <li class="nav-item"><a href="privacy.html" class="nav-link">Privacy</a></li>
+                        <li class="nav-item"><a href="/report" class="nav-link">Report</a></li>
+                    </ul>
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="streaming-hero">
+        <div class="container">
+            <h1 class="hero-title">Anime Streaming Platforms</h1>
+            <p class="hero-subtitle">Discover the best platforms to watch your favorite anime, from free services to premium subscriptions</p>
+        </div>
+    </section>
+
+    <!-- Streaming Platforms Section -->
+    <section class="streaming-section">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Platforms</button>
+                <button class="filter-btn" data-filter="free">Free</button>
+                <button class="filter-btn" data-filter="paid">Paid</button>
+                <button class="filter-btn" data-filter="no-ads">No Ads</button>
+                <button class="filter-btn" data-filter="india">Available in India</button>
+            </div>
+
+            <div class="platforms-grid">
+                <!-- Zoro.to -->
+                <div class="platform-card" data-categories="free ads-yes india">
+                    <div class="platform-header">
+                        <div class="platform-logo">Z</div>
+                        <div class="platform-info">
+                            <div class="platform-name">Zoro.to</div>
+                            <div class="platform-url">zoro.to</div>
+                        </div>
+                    </div>
+                    <div class="platform-features">
+                        <span class="feature-tag feature-free">🎁 FREE</span>
+                        <span class="feature-tag feature-ads-yes">📺 ADS: YES</span>
+                        <span class="feature-tag">🇮🇳 India</span>
+                    </div>
+                    <div class="platform-description">
+                        Free anime streaming with a vast library of subbed and dubbed content. No registration required but contains advertisements.
+                    </div>
+                    <div class="platform-stats">
+                        <div class="stat-item">
+                            <div class="stat-label">Library Size</div>
+                            <div class="stat-value">Large</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Video Quality</div>
+                            <div class="stat-value">1080p</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Subtitles</div>
+                            <div class="stat-value">Multiple</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Dubs Available</div>
+                            <div class="stat-value">Yes</div>
+                        </div>
+                    </div>
+                    <div class="platform-actions">
+                        <a href="https://zoro.to" class="btn btn-primary" target="_blank">Visit Website</a>
+                        <button class="btn btn-secondary">Add to Favorites</button>
+                    </div>
+                </div>
+
+                <!-- Crunchyroll -->
+                <div class="platform-card" data-categories="paid ads-no india global">
+                    <div class="platform-header">
+                        <div class="platform-logo">C</div>
+                        <div class="platform-info">
+                            <div class="platform-name">Crunchyroll</div>
+                            <div class="platform-url">crunchyroll.com</div>
+                        </div>
+                    </div>
+                    <div class="platform-features">
+                        <span class="feature-tag feature-paid">💰 PAID</span>
+                        <span class="feature-tag feature-ads-no">🚫 ADS: NO</span>
+                        <span class="feature-tag">🌍 Global</span>
+                    </div>
+                    <div class="platform-description">
+                        Official streaming service with simulcast episodes. Premium subscription required for ad-free experience and latest episodes.
+                    </div>
+                    <div class="platform-stats">
+                        <div class="stat-item">
+                            <div class="stat-label">Library Size</div>
+                            <div class="stat-value">Very Large</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Video Quality</div>
+                            <div class="stat-value">4K</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Simulcast</div>
+                            <div class="stat-value">Yes</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Manga</div>
+                            <div class="stat-value">Included</div>
+                        </div>
+                    </div>
+                    <div class="platform-actions">
+                        <a href="https://crunchyroll.com" class="btn btn-primary" target="_blank">Visit Website</a>
+                        <button class="btn btn-secondary">Add to Favorites</button>
+                    </div>
+                </div>
+
+                <!-- 9anime -->
+                <div class="platform-card" data-categories="free ads-yes global">
+                    <div class="platform-header">
+                        <div class="platform-logo">9</div>
+                        <div class="platform-info">
+                            <div class="platform-name">9anime</div>
+                            <div class="platform-url">9anime.to</div>
+                        </div>
+                    </div>
+                    <div class="platform-features">
+                        <span class="feature-tag feature-free">🎁 FREE</span>
+                        <span class="feature-tag feature-ads-yes">📺 ADS: YES</span>
+                        <span class="feature-tag">🌍 Global</span>
+                    </div>
+                    <div class="platform-description">
+                        Popular free streaming site with extensive anime collection. Multiple servers available with both subbed and dubbed content.
+                    </div>
+                    <div class="platform-stats">
+                        <div class="stat-item">
+                            <div class="stat-label">Library Size</div>
+                            <div class="stat-value">Very Large</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Video Quality</div>
+                            <div class="stat-value">1080p</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Update Speed</div>
+                            <div class="stat-value">Fast</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Mobile Friendly</div>
+                            <div class="stat-value">Yes</div>
+                        </div>
+                    </div>
+                    <div class="platform-actions">
+                        <a href="https://9anime.to" class="btn btn-primary" target="_blank">Visit Website</a>
+                        <button class="btn btn-secondary">Add to Favorites</button>
+                    </div>
+                </div>
+
+                <!-- Funimation -->
+                <div class="platform-card" data-categories="paid ads-no global">
+                    <div class="platform-header">
+                        <div class="platform-logo">F</div>
+                        <div class="platform-info">
+                            <div class="platform-name">Funimation</div>
+                            <div class="platform-url">funimation.com</div>
+                        </div>
+                    </div>
+                    <div class="platform-features">
+                        <span class="feature-tag feature-paid">💰 PAID</span>
+                        <span class="feature-tag feature-ads-no">🚫 ADS: NO</span>
+                        <span class="feature-tag">🌍 Global</span>
+                    </div>
+                    <div class="platform-description">
+                        Premium anime streaming service specializing in English dubs. High-quality video and exclusive dubbed content.
+                    </div>
+                    <div class="platform-stats">
+                        <div class="stat-item">
+                            <div class="stat-label">Library Size</div>
+                            <div class="stat-value">Large</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Video Quality</div>
+                            <div class="stat-value">1080p</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Dubs Focus</div>
+                            <div class="stat-value">Excellent</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Simulcast</div>
+                            <div class="stat-value">Yes</div>
+                        </div>
+                    </div>
+                    <div class="platform-actions">
+                        <a href="https://funimation.com" class="btn btn-primary" target="_blank">Visit Website</a>
+                        <button class="btn btn-secondary">Add to Favorites</button>
+                    </div>
+                </div>
+
+                <!-- AnimeHeaven -->
+                <div class="platform-card" data-categories="free ads-yes india">
+                    <div class="platform-header">
+                        <div class="platform-logo">A</div>
+                        <div class="platform-info">
+                            <div class="platform-name">AnimeHeaven</div>
+                            <div class="platform-url">animeheaven.ru</div>
+                        </div>
+                    </div>
+                    <div class="platform-features">
+                        <span class="feature-tag feature-free">🎁 FREE</span>
+                        <span class="feature-tag feature-ads-yes">📺 ADS: YES</span>
+                        <span class="feature-tag">🇮🇳 India</span>
+                    </div>
+                    <div class="platform-description">
+                        Simple and clean interface for free anime streaming. Good collection with regular updates and multiple quality options.
+                    </div>
+                    <div class="platform-stats">
+                        <div class="stat-item">
+                            <div class="stat-label">Library Size</div>
+                            <div class="stat-value">Medium</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Video Quality</div>
+                            <div class="stat-value">720p</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Interface</div>
+                            <div class="stat-value">Clean</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Mobile Support</div>
+                            <div class="stat-value">Good</div>
+                        </div>
+                    </div>
+                    <div class="platform-actions">
+                        <a href="https://animeheaven.ru" class="btn btn-primary" target="_blank">Visit Website</a>
+                        <button class="btn btn-secondary">Add to Favorites</button>
+                    </div>
+                </div>
+
+                <!-- Netflix -->
+                <div class="platform-card" data-categories="paid ads-no india global">
+                    <div class="platform-header">
+                        <div class="platform-logo">N</div>
+                        <div class="platform-info">
+                            <div class="platform-name">Netflix</div>
+                            <div class="platform-url">netflix.com</div>
+                        </div>
+                    </div>
+                    <div class="platform-features">
+                        <span class="feature-tag feature-paid">💰 PAID</span>
+                        <span class="feature-tag feature-ads-no">🚫 ADS: NO</span>
+                        <span class="feature-tag">🌍 Global</span>
+                    </div>
+                    <div class="platform-description">
+                        Major streaming platform with growing anime catalog including Netflix Originals. High production quality and exclusive series.
+                    </div>
+                    <div class="platform-stats">
+                        <div class="stat-item">
+                            <div class="stat-label">Library Size</div>
+                            <div class="stat-value">Growing</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Video Quality</div>
+                            <div class="stat-value">4K HDR</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Originals</div>
+                            <div class="stat-value">Exclusive</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Dubs Available</div>
+                            <div class="stat-value">Yes</div>
+                        </div>
+                    </div>
+                    <div class="platform-actions">
+                        <a href="https://netflix.com" class="btn btn-primary" target="_blank">Visit Website</a>
+                        <button class="btn btn-secondary">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTIwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNNiA2SDExNFYzNEg2VjZaIiBmaWxsPSIjNjM2NmYxIi8+CjxwYXRoIGQ9Ik02IDZIMTE0VjM0SDZWNloiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl8wXzIpIi8+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50MF9saW5lYXJfMF8yIiB4MT0iNiIgeTE9IjYiIHgyPSIxMTQiIHkyPSIzNCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjNjM2NmYxIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2VjNDg5OSIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+Cjx0ZXh0IHg9IjEyIiB5PSIyNiIgZm9udC1mYW1pbHk9IkludGVyIiBmb250LXNpemU9IjEyIiBmaWxsPSJ3aGl0ZSI+S0FDPC90ZXh0Pgo8L3N2Zz4K" alt="KAC Logo">
+                        <span>Kerala Anime Community</span>
+                    </div>
+                    <p>Connecting anime fans across Kerala through shared passion and community events.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">FB</a>
+                        <a href="#" aria-label="Instagram">IG</a>
+                        <a href="#" aria-label="Twitter">TW</a>
+                        <a href="#" aria-label="Discord">DC</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="join.html">Join Community</a></li>
+                        <li><a href="streaming.html">Streaming Platforms</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Streaming Categories</h3>
+                    <ul>
+                        <li><a href="#" data-filter="free">Free Platforms</a></li>
+                        <li><a href="#" data-filter="paid">Paid Platforms</a></li>
+                        <li><a href="#" data-filter="no-ads">Ad-Free Platforms</a></li>
+                        <li><a href="#" data-filter="india">Available in India</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Email: contact@keralaac.com</p>
+                    <p>Discord: discord.gg/kac</p>
+                    <p>Kerala, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Kerala Anime Community. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile navigation and filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const dropdowns = document.querySelectorAll('.dropdown');
+            
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            });
+            
+            // Handle dropdowns on mobile
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('.nav-link');
+                
+                link.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        dropdown.classList.toggle('active');
+                        
+                        // Close other dropdowns
+                        dropdowns.forEach(otherDropdown => {
+                            if (otherDropdown !== dropdown) {
+                                otherDropdown.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            });
+            
+            // Header scroll effect
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Platform filtering functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const platformCards = document.querySelectorAll('.platform-card');
+            const footerFilterLinks = document.querySelectorAll('.footer-section a[data-filter]');
+            
+            function filterPlatforms(filter) {
+                // Update active button
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.filter === filter) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                // Filter cards
+                platformCards.forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        const categories = card.dataset.categories.split(' ');
+                        if (categories.includes(filter)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            }
+            
+            // Add click events to filter buttons
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterPlatforms(button.dataset.filter);
+                });
+            });
+            
+            // Add click events to footer filter links
+            footerFilterLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    filterPlatforms(link.dataset.filter);
+                    // Scroll to platforms section
+                    document.querySelector('.streaming-section').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Add to favorites functionality
+            const favoriteButtons = document.querySelectorAll('.btn-secondary');
+            favoriteButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const platformName = this.closest('.platform-card').querySelector('.platform-name').textContent;
+                    this.textContent = this.textContent === 'Add to Favorites' ? 'Added to Favorites ✓' : 'Add to Favorites';
+                    this.style.background = this.textContent.includes('Added') ? 'var(--success-color)' : '';
+                    this.style.color = this.textContent.includes('Added') ? 'white' : '';
+                    
+                    // Show temporary notification
+                    const notification = document.createElement('div');
+                    notification.style.cssText = `
+                        position: fixed;
+                        top: 100px;
+                        right: 20px;
+                        background: var(--success-color);
+                        color: white;
+                        padding: 1rem 1.5rem;
+                        border-radius: var(--border-radius);
+                        box-shadow: var(--shadow-lg);
+                        z-index: 1000;
+                        transition: var(--transition);
+                    `;
+                    notification.textContent = this.textContent.includes('Added') ? 
+                        `Added ${platformName} to favorites!` : 
+                        `Removed ${platformName} from favorites`;
+                    document.body.appendChild(notification);
+                    
+                    setTimeout(() => {
+                        notification.style.opacity = '0';
+                        notification.style.transform = 'translateX(100px)';
+                        setTimeout(() => notification.remove(), 300);
+                    }, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
